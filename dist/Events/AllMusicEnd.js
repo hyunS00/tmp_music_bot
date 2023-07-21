@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const index_1 = __importDefault(require("../index"));
 const discord_js_1 = require("discord.js");
-const updateDjMessage_1 = __importDefault(require("../src/updateDjMessage"));
+const updateDjMessage_1 = __importDefault(require("../function/updateDjMessage"));
 exports.default = {
     name: "queueEnd",
     type: "moon",

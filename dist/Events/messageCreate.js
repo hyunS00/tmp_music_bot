@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
-const getMiniteSecond_1 = __importDefault(require("../src/getMiniteSecond"));
+const getMiniteSecond_1 = __importDefault(require("../function/getMiniteSecond"));
 let dj_message;
 exports.default = {
     name: discord_js_1.Events.MessageCreate,

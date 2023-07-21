@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
-const getMiniteSecond_1 = __importDefault(require("../../src/getMiniteSecond"));
+const getMiniteSecond_1 = __importDefault(require("../../function/getMiniteSecond"));
 const index_1 = __importDefault(require("../../index"));
 function numberToTwoLength(inputNumber) {
     return inputNumber < 10 ? `0${inputNumber}` : inputNumber.toString();
