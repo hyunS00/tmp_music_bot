@@ -29,7 +29,7 @@ class clientStr extends discord_js_1.Client {
         await fetch("https://raw.githubusercontent.com/dazzypark/discord_music_bot/master/package.json").then(async (f) => {
             const jsonContent = await f.json();
             if (jsonContent.version != package_json_1.default.version) {
-                console.log("새로운 패치가 있습니다 - 이 패치는 보안 강화와 버그 수정을 포함합니다\nhttps://github.com/dazzypark/discord_music_bot 링크에서 봇을 다시 다운로드 해주세요");
+                console.log(`새로운 패치가 있습니다 - 이 패치는 보안 강화와 버그 수정을 포함합니다 (${jsonContent.version}v -> ${package_json_1.default.version}v)\nhttps://github.com/dazzypark/discord_music_bot 링크에서 봇을 다시 다운로드 해주세요`);
                 process.exit();
             }
         });
