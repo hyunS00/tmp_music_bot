@@ -1,14 +1,11 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
 require("dotenv/config");
 const discord_js_1 = require("discord.js");
 const fs_1 = require("fs");
 const path_1 = require("path");
 const moonlink_js_1 = require("moonlink.js");
-const package_json_1 = __importDefault(require("../package.json"));
+const packageJson = require("../package.json");
 class clientStr extends discord_js_1.Client {
     constructor() {
         super({
@@ -21,15 +18,15 @@ class clientStr extends discord_js_1.Client {
                 },
             },
         });
-        this.moon = new moonlink_js_1.MoonlinkManager([{ host: "192.168.0.101", port: 2333, secure: false, password: "dazzy" }], {}, (guild, sPayload) => {
+        this.moon = new moonlink_js_1.MoonlinkManager([{ host: "0.0.0.0", port: 2333, secure: false, password: "dazzy" }], {}, (guild, sPayload) => {
             this.guilds.cache.get(guild)?.shard.send(JSON.parse(sPayload));
         });
     }
     async checkUpdate() {
         await fetch("https://raw.githubusercontent.com/dazzypark/discord_music_bot/master/package.json").then(async (f) => {
             const jsonContent = await f.json();
-            if (jsonContent.version != package_json_1.default.version) {
-                console.log(`새로운 패치가 있습니다 - 이 패치는 보안 강화와 버그 수정을 포함합니다 (${jsonContent.version}v -> ${package_json_1.default.version}v)\nhttps://github.com/dazzypark/discord_music_bot 링크에서 봇을 다시 다운로드 해주세요`);
+            if (jsonContent.version != packageJson.version) {
+                console.log(`새로운 패치가 있습니다 - 이 패치는 보안 강화와 버그 수정을 포함합니다 (${jsonContent.version}v -> ${packageJson.version}v)\nhttps://github.com/dazzypark/discord_music_bot 링크에서 봇을 다시 다운로드 해주세요`);
                 process.exit();
             }
         });
