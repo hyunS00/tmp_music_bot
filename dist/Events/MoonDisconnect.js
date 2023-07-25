@@ -8,6 +8,7 @@ exports.default = {
     name: "playerDisconnect",
     type: "moon",
     async execute(player) {
+        player.setAutoPlay(false);
         await player.stop();
         (0, updateDjMessage_1.default)(player.guildId);
     },

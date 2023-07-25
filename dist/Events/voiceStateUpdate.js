@@ -15,6 +15,7 @@ exports.default = {
                         player = oldState.client.moon.players.get(oldState.guild.id);
                         if (oldState.channel?.members.filter((f) => !f.user.bot).size == 0 &&
                             player) {
+                            player.setAutoPlay(false);
                             player.stop();
                         }
                     }, 10 * 1000);
