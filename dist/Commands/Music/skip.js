@@ -30,6 +30,6 @@ exports.default = {
         player.skip();
         setTimeout(() => {
             interaction?.deleteReply().catch(() => { });
-        }, 3000);
+        }, 10 * 1000);
     },
 };

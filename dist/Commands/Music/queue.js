@@ -53,6 +53,6 @@ exports.default = {
         interaction.editReply({ embeds: [embed] });
         setTimeout(() => {
             interaction?.deleteReply().catch(() => { });
-        }, 3000);
+        }, 60 * 1000);
     },
 };

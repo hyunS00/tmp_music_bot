@@ -28,6 +28,6 @@ exports.default = {
         player.stop();
         setTimeout(() => {
             interaction?.deleteReply().catch(() => { });
-        }, 3000);
+        }, 10 * 1000);
     },
 };
