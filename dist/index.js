@@ -18,7 +18,7 @@ class clientStr extends discord_js_1.Client {
                 },
             },
         });
-        this.moon = new moonlink_js_1.MoonlinkManager([{ host: "0.0.0.0", port: 2333, secure: false, password: "dazzy" }], {}, (guild, sPayload) => {
+        this.moon = new moonlink_js_1.MoonlinkManager([{ host: "127.0.0.1", port: 2333, secure: false, password: "dazzy" }], {}, (guild, sPayload) => {
             this.guilds.cache.get(guild)?.shard.send(JSON.parse(sPayload));
         });
     }
