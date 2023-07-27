@@ -4,7 +4,7 @@
   "main": "dist/run.js",
   "license": "MIT",
   "scripts": {
-    "dev": "concurrently \"tsc -w\" \"nodemon dist/run.js\"",
+    "dev": "yarn buildts && yarn start",
     "upgradef": "yarn upgrade --latest && syncyarnlock -s -k && yarn",
     "buildts": "tsc",
     "start": "node dist/run.js"

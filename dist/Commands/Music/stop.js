@@ -25,6 +25,7 @@ exports.default = {
         }
         interaction.editReply({ content: `**음악 플레이어를 종료했어요**` });
         player.setAutoPlay(false);
+        player.queue.clear();
         player.stop();
         setTimeout(() => {
             interaction?.deleteReply().catch(() => { });
