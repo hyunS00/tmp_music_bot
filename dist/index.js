@@ -14,7 +14,8 @@ class clientStr extends discord_js_1.Client {
                 ...discord_js_1.Options.DefaultSweeperSettings,
                 messages: {
                     interval: 600,
-                    filter: () => (message) => message.id != this.dj_message,
+                    filter: () => (message) => this.dj_message.filter((f) => message.id == f.messageId).length ==
+                        1,
                 },
             },
         });

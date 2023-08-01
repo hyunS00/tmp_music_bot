@@ -9,7 +9,13 @@ const getMiniteSecond_1 = __importDefault(require("./getMiniteSecond"));
 exports.default = (guilId) => {
     const ClientUser = index_1.default.user;
     const player = index_1.default.moon.players.get(guilId);
-    const message = index_1.default.channels.cache.get(process.env.MUSIC_CHANNEL_ID).messages.cache.get(index_1.default.dj_message);
+    const guild = index_1.default.guilds.cache.get(guilId);
+    if (!guild)
+        return;
+    const dj_message = index_1.default.dj_message.find((f) => f.guildId == guilId);
+    if (!dj_message)
+        return;
+    const message = guild.channels.cache.find((f) => process.env.MUSIC_CHANNEL_ID.split(" ").includes(f.id)).messages.cache.get(dj_message?.messageId);
     if (!message) {
         return;
     }

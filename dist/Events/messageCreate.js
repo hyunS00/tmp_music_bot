@@ -13,7 +13,7 @@ exports.default = {
             message.channel.type != discord_js_1.ChannelType.GuildText ||
             !message.member)
             return;
-        if (message.channel.id == process.env.MUSIC_CHANNEL_ID) {
+        if (process.env.MUSIC_CHANNEL_ID.split(" ").includes(message.channel.id)) {
             if (!message.author.bot) {
                 const title_option = message.content;
                 if (!message.member.voice.channel) {
@@ -35,7 +35,10 @@ exports.default = {
                         embeds: [dj_embed],
                     });
                     dj_message = dj_message_send.id;
-                    message.client.dj_message = dj_message;
+                    message.client.dj_message.push({
+                        guildId: message.guild.id,
+                        messageId: dj_message,
+                    });
                 }
                 else {
                     player.setTextChannel(message.channel.id);
