@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
 const getMiniteSecond_1 = __importDefault(require("../function/getMiniteSecond"));
-let dj_message;
+let dj_messageF;
 exports.default = {
     name: discord_js_1.Events.MessageCreate,
     async execute(message) {
@@ -34,11 +34,8 @@ exports.default = {
                     const dj_message_send = await message.channel.send({
                         embeds: [dj_embed],
                     });
-                    dj_message = dj_message_send.id;
-                    message.client.dj_message.push({
-                        guildId: message.guild.id,
-                        messageId: dj_message,
-                    });
+                    dj_messageF = dj_message_send.id;
+                    globalThis.dj_message.set(message.guild.id, dj_messageF);
                 }
                 else {
                     player.setTextChannel(message.channel.id);
@@ -156,7 +153,9 @@ exports.default = {
             }
             if (message.author.bot) {
                 setTimeout(() => {
-                    if (message.id == dj_message)
+                    if (!message.guild)
+                        return;
+                    if (message.id == dj_message.get(message.guild.id))
                         return;
                     message?.delete().catch(() => { });
                 }, 10000);

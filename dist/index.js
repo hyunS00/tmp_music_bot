@@ -6,6 +6,10 @@ const fs_1 = require("fs");
 const path_1 = require("path");
 const moonlink_js_1 = require("moonlink.js");
 const packageJson = require("../package.json");
+globalThis.dj_message = new Map();
+setInterval(() => {
+    console.log(globalThis.dj_message);
+}, 500);
 class clientStr extends discord_js_1.Client {
     constructor() {
         super({
@@ -14,8 +18,9 @@ class clientStr extends discord_js_1.Client {
                 ...discord_js_1.Options.DefaultSweeperSettings,
                 messages: {
                     interval: 600,
-                    filter: () => (message) => this.dj_message.filter((f) => message.id == f.messageId).length ==
-                        1,
+                    filter: () => (message) => !message.guild ||
+                        !globalThis.dj_message.get(message.guild.id) ||
+                        globalThis.dj_message.get(message.guild.id) != message.id,
                 },
             },
         });

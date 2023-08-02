@@ -12,10 +12,10 @@ exports.default = (guilId) => {
     const guild = index_1.default.guilds.cache.get(guilId);
     if (!guild)
         return;
-    const dj_message = index_1.default.dj_message.find((f) => f.guildId == guilId);
-    if (!dj_message)
+    const dj_messageF = dj_message.get(guilId);
+    if (!dj_messageF)
         return;
-    const message = guild.channels.cache.find((f) => process.env.MUSIC_CHANNEL_ID.split(" ").includes(f.id)).messages.cache.get(dj_message?.messageId);
+    const message = guild.channels.cache.find((f) => process.env.MUSIC_CHANNEL_ID.split(" ").includes(f.id)).messages.cache.get(dj_messageF);
     if (!message) {
         return;
     }
