@@ -7,9 +7,7 @@ const path_1 = require("path");
 const moonlink_js_1 = require("moonlink.js");
 const packageJson = require("../package.json");
 globalThis.dj_message = new Map();
-setInterval(() => {
-    console.log(globalThis.dj_message);
-}, 500);
+globalThis.music_lapse = new Map();
 class clientStr extends discord_js_1.Client {
     constructor() {
         super({

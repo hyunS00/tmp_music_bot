@@ -5,7 +5,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const discord_js_1 = require("discord.js");
 const getMiniteSecond_1 = __importDefault(require("../../function/getMiniteSecond"));
-const index_1 = __importDefault(require("../../index"));
 function numberToTwoLength(inputNumber) {
     return inputNumber < 10 ? `0${inputNumber}` : inputNumber.toString();
 }
@@ -33,7 +32,7 @@ exports.default = {
             });
         }
         const nowMusic = player.current;
-        const startTime = index_1.default.music_lapse;
+        const startTime = music_lapse.get(player.guildId) || 0;
         const resultSecond = Math.floor((Date.now() - startTime) / 1000);
         const lapse_minutes = numberToTwoLength(Math.floor(resultSecond / 60));
         const lapse_seconds = numberToTwoLength(resultSecond % 60);

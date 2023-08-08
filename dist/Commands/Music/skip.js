@@ -26,7 +26,9 @@ exports.default = {
         interaction.editReply({
             content: `**[${player.current.title}](<${player.current.url}>)을/를 스킵했어요**`,
         });
-        player.setAutoPlay(false);
+        if (process.env.AUTOPLAY == "1") {
+            player.setAutoPlay(false);
+        }
         player.skip();
         setTimeout(() => {
             interaction?.deleteReply().catch(() => { });

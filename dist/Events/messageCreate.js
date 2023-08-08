@@ -67,7 +67,7 @@ exports.default = {
                     for (const track of search.tracks) {
                         player.queue.add(track);
                     }
-                    if (!player.playing) {
+                    if (!player.playing && process.env.AUTOPLAY == "1") {
                         player.setAutoPlay(false);
                         player.play();
                     }
@@ -143,7 +143,7 @@ exports.default = {
                                 });
                             }
                             player.queue.add(search.tracks[selectMusicIndex]);
-                            if (!player.playing) {
+                            if (!player.playing && process.env.AUTOPLAY == "1") {
                                 player.setAutoPlay(true);
                                 player.play();
                             }

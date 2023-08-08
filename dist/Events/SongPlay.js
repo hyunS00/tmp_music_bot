@@ -11,8 +11,10 @@ exports.default = {
     name: "trackStart",
     type: "moon",
     async execute(player, current) {
-        player.setAutoPlay(true);
-        index_1.default.music_lapse = Date.now();
+        if (process.env.AUTOPLAY == "1") {
+            player.setAutoPlay(true);
+        }
+        music_lapse.set(player.guildId, Date.now());
         const ClientUser = index_1.default.user;
         const textChannel = index_1.default.guilds.cache
             .get(player.guildId)
