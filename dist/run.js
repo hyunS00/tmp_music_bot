@@ -32,7 +32,6 @@ function runJava() {
         const timeout = 5000; // 5초 타임아웃
         let stdoutData = "";
         let timer = setTimeout(() => {
-            console.log("자바 프로세스가 5초 이상 응답이 없어서 강제 종료합니다.");
             // 특정 함수 실행 (예: 오류 처리 함수)
             //   handleTimeout();
             Promise.resolve().then(() => __importStar(require("./index")));
