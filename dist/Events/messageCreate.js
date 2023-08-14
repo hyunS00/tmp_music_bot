@@ -27,7 +27,7 @@ exports.default = {
                         voiceChannel: message.member.voice.channel.id,
                         textChannel: message.channel.id,
                     });
-                    await message.channel.bulkDelete(100);
+                    await message.channel.bulkDelete(100, true);
                     const dj_embed = new discord_js_1.EmbedBuilder({ title: "DJ 보드 🎛️" })
                         .setColor("Purple")
                         .setImage("https://i.imgur.com/p4eTRCz.png");
