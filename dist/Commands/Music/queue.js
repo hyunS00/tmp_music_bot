@@ -22,6 +22,7 @@ exports.default = {
                 content: `**음악을 재생하고 있지 않아요**`,
             });
         }
+        console.log(player.queue);
         const queues = // @ts-ignore
          player.queue.db.data
             .queue?.[interaction.guild.id];
