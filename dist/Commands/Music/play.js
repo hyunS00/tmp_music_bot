@@ -66,7 +66,7 @@ exports.default = {
         }
         if (search.loadType == 'playlist') {
             // setTimeout(() => {
-            //     interaction?.deleteReply().catch(() => { });
+            //     interaction?.deleteReply().catch(() => {});
             // }, 3000);
             interaction.editReply({
                 content: `**\`${search.playlistInfo?.name}\` 플레이리스트를 추가합니다**`,
@@ -110,7 +110,7 @@ exports.default = {
             })
                 .setColor('Green')
                 .setFooter({
-                    text: '아무 동작이 없으면 10초 뒤 자동으로 1번 노래가 선택됩니다',
+                    text: '아무 동작이 없으면 30초 뒤 자동으로 1번 노래가 선택됩니다',
                 });
             setTimeout(() => {
                 interaction?.deleteReply().catch(() => {});
@@ -122,7 +122,7 @@ exports.default = {
             const selectMusicFilter = (i) => i.user.id == interaction.user.id;
             const selectMusicCollect = msg.createMessageComponentCollector({
                 max: 1,
-                time: 10 * 1000,
+                time: 30 * 1000,
                 filter: selectMusicFilter,
             });
             let selectMusicIndex = 0;
@@ -148,9 +148,9 @@ exports.default = {
                     if (!player.playing) {
                         interaction.deleteReply();
                     } else {
-                        setTimeout(() => {
-                            interaction?.deleteReply().catch(() => {});
-                        }, 3000);
+                        // setTimeout(() => {
+                        //     interaction?.deleteReply().catch(() => {});
+                        // }, 3000);
                         interaction.editReply({
                             embeds: [],
                             components: [],
